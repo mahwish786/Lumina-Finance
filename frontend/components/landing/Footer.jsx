@@ -16,8 +16,8 @@ export default function Footer() {
 
     setSubmitting(true);
     try {
-      await axios.post("http://localhost:5000/api/subscribe", { email });
-      // await axios.post("/api/subscribe", { email }); // Use this line for production with a Next.js API route
+      // await axios.post("http://localhost:5000/api/subscribe", { email }); // Use this line for local development
+      await axios.post("/api/subscribe", { email }); // Use this line for production with a Next.js API route
       toast.success("Subscribed successfully!");
       setEmail(""); // Clear input after success
     } catch (error) {

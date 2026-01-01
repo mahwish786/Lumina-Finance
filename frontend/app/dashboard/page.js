@@ -58,8 +58,8 @@ export default function Dashboard() {
     try {
       // Call API with the current filter (e.g., ?category=Food)
       const res = await axios.get(
-        `http://localhost:5000/api/transactions?category=${filter}`,
-        // `/api/transactions?category=${filter}`, // Use this line for production with a Next.js API route
+        // `http://localhost:5000/api/transactions?category=${filter}`, // Use this line for local development
+        `/api/transactions?category=${filter}`, // Use this line for production with a Next.js API route
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -172,8 +172,8 @@ export default function Dashboard() {
       if (isEditing) {
         // UPDATE existing transaction
         await axios.put(
-          `http://localhost:5000/api/transactions/${editId}`,
-          // `/api/transactions/${editId}`, // Use this line for production with a Next.js API route
+          // `http://localhost:5000/api/transactions/${editId}`, // Use this line for local development
+          `/api/transactions/${editId}`, // Use this line for production with a Next.js API route
           form,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -183,8 +183,8 @@ export default function Dashboard() {
       } else {
         // CREATE new transaction
         await axios.post(
-          "http://localhost:5000/api/transactions",
-          // "/api/transactions", // Use this line for production with a Next.js API route
+          // "http://localhost:5000/api/transactions", // Use this line for local development
+          "/api/transactions", // Use this line for production with a Next.js API route
           formData,
           config
         );
@@ -221,8 +221,8 @@ export default function Dashboard() {
     const token = localStorage.getItem("token");
     try {
       await axios.delete(
-        `http://localhost:5000/api/transactions/${deleteId}`,
-        // `/api/transactions/${deleteId}`, // Use this line for production with a Next.js API route
+        // `http://localhost:5000/api/transactions/${deleteId}`, // Use this line for local development
+        `/api/transactions/${deleteId}`, // Use this line for production with a Next.js API route
         { headers: { Authorization: `Bearer ${token}` } }
       );
       toast.success("Deleted");

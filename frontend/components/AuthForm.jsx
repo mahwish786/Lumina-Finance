@@ -60,8 +60,8 @@ export default function AuthForm({ initialMode = "login" }) {
     try {
       // 2. Call the API
       const res = await axios.post(
-        `http://localhost:5000/api/auth/${endpoint}`,
-        // `/api/auth/${endpoint}`, // Use this line for production with a Next.js API route
+        // `http://localhost:5000/api/auth/${endpoint}`, // Use this line for local development
+        `/api/auth/${endpoint}`, // Use this line for production with a Next.js API route
         formData
       );
       if (isLogin) {
