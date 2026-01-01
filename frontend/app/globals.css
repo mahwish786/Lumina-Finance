@@ -1,0 +1,243 @@
+/* frontend/app/globals.css */
+
+:root {
+  /* --- Dark Mode Variables (Default) --- */
+  --bg-main: #0b0c15;
+  --bg-card: #151725;
+  --bg-input: #1f2235;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  
+  --primary-blue: #3b82f6;
+  --primary-glow: rgba(59, 130, 246, 0.5);
+  
+  --border-color: #2a2e3d;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  
+  /* Navbar background with transparency */
+  --nav-bg: rgba(11, 12, 21, 0.8); 
+}
+
+/* --- Custom Scrollbar Styling --- */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Light Mode Variables --- */
+[data-theme='light'] {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-input: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  
+  --primary-blue: #2563eb;
+  --primary-glow: rgba(37, 99, 235, 0.2);
+  --border-color: #e2e8f0;
+  
+  --nav-bg: rgba(255, 255, 255, 0.85);
+}
+
+/* --- Global Base Styles --- */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Glassmorphism Navbar --- */
+.glass-nav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- Card Styles & Hover Effects --- */
+.modern-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-blue);
+  box-shadow: 0 10px 30px -10px var(--primary-glow);
+}
+
+/* --- Form Inputs & Selects --- */
+.form-control, .form-select {
+  background-color: var(--bg-input) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary-blue) !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.6;
+}
+
+/* --- Main Buttons --- */
+.btn-primary-blue {
+  background: linear-gradient(135deg, var(--primary-blue), #2563eb);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px var(--primary-glow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary-blue:hover {
+  filter: brightness(110%);
+  transform: translateY(-1px);
+  color: white !important;
+}
+
+.btn-custom-outline {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-custom-outline:hover {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+  background-color: rgba(59, 130, 246, 0.05);
+  transform: translateY(-1px);
+}
+
+/* --- Soft Icon Buttons (Edit/Delete) --- */
+.btn-soft-danger {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  color: #ef4444 !important;
+  border: 1px solid rgba(239, 68, 68, 0.2) !important;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.btn-soft-danger:hover {
+  background-color: #ef4444 !important;
+  color: white !important;
+  transform: scale(1.05);
+}
+
+.btn-soft-edit {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+  color: #3b82f6 !important;
+  border: 1px solid rgba(59, 130, 246, 0.2) !important;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.btn-soft-edit:hover {
+  background-color: #3b82f6 !important;
+  color: white !important;
+  transform: scale(1.05);
+}
+
+/* --- Dropdown Menu Styling --- */
+.dropdown-toggle {
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown-menu {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  padding: 8px;
+}
+
+.dropdown-item {
+  color: var(--text-secondary);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--primary-blue);
+}
+
+/* --- Responsive Visibility Logic --- */
+@media (max-width: 768px) {
+  /* Hide text, desktop details, and desktop actions on Mobile */
+  .btn-text-mobile,
+  .details-desktop,
+  .actions-desktop {
+    display: none !important;
+  }
+  
+  /* Show the "Eye" icon on Mobile */
+  .actions-mobile {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Hide the "Eye" icon on Desktop */
+  .actions-mobile {
+    display: none !important;
+  }
+}
